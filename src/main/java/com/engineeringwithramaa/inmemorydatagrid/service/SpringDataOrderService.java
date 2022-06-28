@@ -13,7 +13,7 @@ import com.tangosol.util.Filters;
 @Service
 public class SpringDataOrderService implements OrderService{
 
-	private static final String ORDER_NOT_FOUND_MESSAGE = "Unable to find Order with id '%s'.";
+	private static final String ORDER_NOT_FOUND_MESSAGE = "Unable to find Order with id '%s' - ";
 
 	private final SpringDataOrderRepository orderRepository;
 
