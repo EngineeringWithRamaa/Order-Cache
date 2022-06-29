@@ -1,4 +1,4 @@
-package com.engineeringwithramaa.inmemorydatagrid.controller;
+package com.engineeringwithramaa.inmemorydatagrid.advice;
 
 
 import java.util.HashMap;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.engineeringwithramaa.inmemorydatagrid.service.OrderNotFoundException;
+import com.engineeringwithramaa.inmemorydatagrid.exception.OrderNotFoundException;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {

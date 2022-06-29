@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.engineeringwithramaa.inmemorydatagrid.model.Order;
-import com.engineeringwithramaa.inmemorydatagrid.service.OrderNotFoundException;
+import com.engineeringwithramaa.inmemorydatagrid.exception.OrderNotFoundException;
 import com.engineeringwithramaa.inmemorydatagrid.service.OrderService;
 
 @RestController

@@ -2,6 +2,7 @@ package com.engineeringwithramaa.inmemorydatagrid.service;
 
 import java.util.Collection;
 
+import com.engineeringwithramaa.inmemorydatagrid.exception.OrderNotFoundException;
 import com.engineeringwithramaa.inmemorydatagrid.model.Order;
 
 public interface OrderService {

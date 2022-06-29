@@ -2,11 +2,12 @@ package com.engineeringwithramaa.inmemorydatagrid.service;
 
 import java.util.Collection;
 
+import com.engineeringwithramaa.inmemorydatagrid.exception.OrderNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import com.engineeringwithramaa.inmemorydatagrid.model.Order;
-import com.engineeringwithramaa.inmemorydatagrid.repository.SpringDataOrderRepository;
+import com.engineeringwithramaa.inmemorydatagrid.coherence.SpringDataOrderRepository;
 import com.tangosol.util.Filter;
 import com.tangosol.util.Filters;
 

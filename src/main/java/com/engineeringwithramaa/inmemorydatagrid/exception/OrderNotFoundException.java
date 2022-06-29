@@ -1,4 +1,4 @@
-package com.engineeringwithramaa.inmemorydatagrid.service;
+package com.engineeringwithramaa.inmemorydatagrid.exception;
 
 
 public class OrderNotFoundException extends RuntimeException {
