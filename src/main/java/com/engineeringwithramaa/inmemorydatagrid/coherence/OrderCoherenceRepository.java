@@ -5,5 +5,5 @@ import com.oracle.coherence.spring.data.config.CoherenceMap;
 import com.oracle.coherence.spring.data.repository.CoherenceRepository;
 
 @CoherenceMap("Order")
-public interface SpringDataOrderRepository extends CoherenceRepository<Order, String> {
+public interface OrderCoherenceRepository extends CoherenceRepository<Order, String> {
 }
