@@ -1,0 +1,38 @@
+<cache-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.oracle.com/coherence/coherence-cache-config" xmlns:spring="class://com.oracle.coherence.spring.namespace.NamespaceHandler" xsi:schemaLocation="http://xmlns.oracle.com/coherence/coherence-cache-config
+   coherence-cache-config.xsd">
+	
+	<caching-scheme-mapping>
+		<cache-mapping>
+			<cache-name>OrderCache</cache-name>
+			<scheme-name>distributed-rwbm</scheme-name>
+
+		</cache-mapping>
+	</caching-scheme-mapping>
+
+	<caching-schemes>
+		<distributed-scheme>
+			<scheme-name>distributed-rwbm</scheme-name>
+			<thread-count-min>8</thread-count-min>
+			<backing-map-scheme>
+				<read-write-backing-map-scheme>
+					<internal-cache-scheme>
+						<local-scheme>
+							<unit-calculator>BINARY</unit-calculator>
+						</local-scheme>
+					</internal-cache-scheme>
+					<cachestore-scheme>
+						<class-scheme>
+							<class-name>com.engineeringwithramaa.inmemorydatagrid.cachestore.OrderCacheStore</class-name>
+						</class-scheme>
+					</cachestore-scheme>
+					<read-only>false</read-only>
+					<write-delay>10</write-delay>
+					<write-requeue-threshold>1</write-requeue-threshold>
+					<rollback-cachestore-failures>false</rollback-cachestore-failures>
+				</read-write-backing-map-scheme>
+			</backing-map-scheme>
+			<autostart>true</autostart>
+		</distributed-scheme>
+	</caching-schemes>
+
+</cache-config>

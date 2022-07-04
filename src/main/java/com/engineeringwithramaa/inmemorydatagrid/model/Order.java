@@ -6,8 +6,18 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.UUID;
 
-import org.springframework.data.annotation.Id;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
+
+@Entity
+@Table(name="ORDER_TABLE")
+@NamedQueries({
+    @NamedQuery(name = "Order.findById",
+            query = "SELECT o FROM Order o WHERE o.id = :id")})
 public class Order implements Serializable {
 
 	

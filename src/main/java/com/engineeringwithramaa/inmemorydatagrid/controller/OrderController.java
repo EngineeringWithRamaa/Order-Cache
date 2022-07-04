@@ -10,50 +10,53 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.engineeringwithramaa.inmemorydatagrid.model.Order;
-import com.engineeringwithramaa.inmemorydatagrid.exception.OrderNotFoundException;
 import com.engineeringwithramaa.inmemorydatagrid.service.OrderService;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @RestController
 @RequestMapping("/api/orders")
 public class OrderController {
 	
 	private OrderService orderService;
-
+	private static final Logger LOGGER=LoggerFactory.getLogger(OrderController.class);
+	
 	public OrderController(OrderService orderService) {
 		this.orderService = orderService;
 	}
 
 	@GetMapping
-	public Collection<Order> getOrders(@RequestParam(defaultValue = "false") boolean completed) {
-		return orderService.findAll(completed);
+	public Collection<Order> getOrders() {
+		LOGGER.info("Order Controller -> getOrders() ");
+		return orderService.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Order> getOrderById(@PathVariable String id) throws OrderNotFoundException{
+	public ResponseEntity<Order> getOrderById(@PathVariable String id) {
+		LOGGER.info("Order Controller -> getOrderById() -> id " + id);
 		return ResponseEntity.ok(orderService.find(id));
 	}
 
 	@PostMapping
 	public void createOrder(@RequestBody Order order) {
+		LOGGER.info("Order Controller -> createOrder() -> order " + order.toString());
 		orderService.save(new Order(order.getDescription()));
 	}
 
 	@DeleteMapping("/{id}")
 	public void deleteOrder(@PathVariable String id) {
+		LOGGER.info("Order Controller -> deleteOrder() -> id " + id);
 		orderService.removeById(id);
 	}
 
-	@DeleteMapping
-	public void deleteCompletedOrders() {
-		orderService.deleteCompletedOrders();
-	}
-
+	
 	@PutMapping("/{id}")
-	public Order updateOrder(@PathVariable String id, @RequestBody Order order) {
-		return orderService.update(id, order);
+	public void updateOrder(@PathVariable String id, @RequestBody Order order) {
+		LOGGER.info("Order Controller -> updateOrder() -> order " + order.toString());
+		orderService.update(id, order);
 	}
 }
