@@ -24,8 +24,7 @@ import com.tangosol.io.pof.annotation.Portable;
 @NamedQueries({
 	@NamedQuery(name = "Order.findById",
 			query = "SELECT o FROM Order o WHERE o.id = :id")})
-public class Order implements Serializable, PortableObject {
-
+public class Order implements Serializable {
 
 	//The Order ID
 	@Id
@@ -68,6 +67,13 @@ public class Order implements Serializable, PortableObject {
 	public void setCompleted(Boolean completed) {
 		this.completed = completed;
 	}
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public void setCreatedAt(Long createdAt) {
+		this.createdAt = createdAt;
+	}
 	public LocalDateTime getCreatedAtDate() {
 		return LocalDateTime.ofInstant(Instant.ofEpochMilli(createdAt), ZoneId.systemDefault());
 	}
@@ -81,22 +87,14 @@ public class Order implements Serializable, PortableObject {
 				+ '}';
 	}
 
-	@Override
-	public void readExternal(PofReader pofReader) throws IOException {
-		id = pofReader.readString(0);
-		createdAt = pofReader.readLong(1);
-		description = pofReader.readString(2);
-		completed = pofReader.readBoolean(3); 
-
-
-	}
-
-	@Override
-	public void writeExternal(PofWriter pofWriter) throws IOException {
-		pofWriter.writeString(0, id);
-		pofWriter.writeLong(1, createdAt);
-		pofWriter.writeString(2, description);
-		pofWriter.writeBoolean(3, completed);
-
-	}
+	/*
+	 * @Override public void readExternal(PofReader pofReader) throws IOException {
+	 * id = pofReader.readString(0); createdAt = pofReader.readLong(1); description
+	 * = pofReader.readString(2); completed = pofReader.readBoolean(3); }
+	 * 
+	 * @Override public void writeExternal(PofWriter pofWriter) throws IOException {
+	 * pofWriter.writeString(0, id); pofWriter.writeLong(1, createdAt);
+	 * pofWriter.writeString(2, description); pofWriter.writeBoolean(3, completed);
+	 * }
+	 */
 }

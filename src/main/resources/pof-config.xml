@@ -11,6 +11,9 @@
       <user-type>
          <type-id>1001</type-id>
          <class-name>com.engineeringwithramaa.inmemorydatagrid.model.Order</class-name>
+         <serializer>
+         	<class-name>com.engineeringwithramaa.inmemorydatagrid.serializer.OrderSerializer</class-name>
+         </serializer>
       </user-type>
    </user-type-list>
 </pof-config>
