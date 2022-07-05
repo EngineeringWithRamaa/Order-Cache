@@ -36,7 +36,7 @@
 						</class-scheme>
 					</cachestore-scheme>
 					<read-only>false</read-only>
-					<write-delay>10</write-delay>
+					<write-delay>2M</write-delay>
 					<write-requeue-threshold>1</write-requeue-threshold>
 					<rollback-cachestore-failures>false</rollback-cachestore-failures>
 				</read-write-backing-map-scheme>

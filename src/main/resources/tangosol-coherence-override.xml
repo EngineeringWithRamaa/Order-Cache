@@ -9,10 +9,13 @@
                 MyCluster</cluster-name>
         </member-identity>
         <multicast-listener>
-	         <address system-property="tangosol.coherence.clusteraddress">224.3.6.0</address>
-	         <port system-property="tangosol.coherence.clusterport">3059</port>
+	         <address system-property="tangosol.coherence.clusteraddress">127.0.0.1</address>
+	         <port system-property="tangosol.coherence.clusterport">7574</port>
 	         <join-timeout-milliseconds>6000</join-timeout-milliseconds>
 	         <multicast-threshold-percent>30</multicast-threshold-percent>
       	</multicast-listener>
     </cluster-config>
+    <management-config>
+    	<http-managed-nodes>all</http-managed-nodes>
+    </management-config>
 </coherence>
