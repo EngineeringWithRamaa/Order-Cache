@@ -25,7 +25,7 @@ public class OrderService {
 		LOGGER.info("Order Service -> ORDER NAMED MAP GET - id " + id);
 		Assert.hasText(id, "The Order Id must not be null or empty.");
 		final Order order = orderCache.get(id);
-		LOGGER.info("Order Service - ORDER NAMED MAP - order -  " + order.toString());
+		LOGGER.info("Order Service - ORDER NAMED MAP - order - Cache Size " + orderCache.size() + " " + order.toString());
 		return order;
 	}
 	

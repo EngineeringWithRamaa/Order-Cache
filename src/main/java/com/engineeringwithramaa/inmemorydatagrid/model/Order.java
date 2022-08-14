@@ -24,7 +24,7 @@ import com.tangosol.io.pof.annotation.Portable;
 @NamedQueries({
 	@NamedQuery(name = "Order.findById",
 			query = "SELECT o FROM Order o WHERE o.id = :id")})
-public class Order implements Serializable {
+public class Order {
 
 	//The Order ID
 	@Id

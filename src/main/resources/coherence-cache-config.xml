@@ -38,7 +38,7 @@
 					<read-only>false</read-only>
 					<write-delay>2M</write-delay>
 					<write-requeue-threshold>1</write-requeue-threshold>
-					<rollback-cachestore-failures>false</rollback-cachestore-failures>
+					<rollback-cachestore-failures>true</rollback-cachestore-failures>
 				</read-write-backing-map-scheme>
 			</backing-map-scheme>
 			<autostart>true</autostart>
